@@ -9,7 +9,7 @@ skip-lint = false
 simple_vault = "8ENLb6EtpgGwGmbn2TVecPPVPNhbRdZo9LCF7vDTs8kN"
 
 [programs.localnet]
-simple_vault = "EbojNUfh9Jk6dyZaaQAJWofbdnkvdxfQbeAPq6iWoHAu"
+simple_vault = "8ENLb6EtpgGwGmbn2TVecPPVPNhbRdZo9LCF7vDTs8kN"
 
 [registry]
 url = "https://api.apr.dev"
