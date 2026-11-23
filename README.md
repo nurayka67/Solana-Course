@@ -37,3 +37,25 @@ yarn create-pool
 ```
 
 Script: `scripts/create-clmm-pool.ts`
+
+## Week 12 — Swap via Raydium CPI (Devnet)
+
+Implemented Raydium CLMM integration for the Simple Vault program.
+
+- Added TOKEN_B support using add_pair_token.
+- Implemented token swaps via Raydium CPI.
+- Added admin authorization and pool validation.
+- Added slippage protection with min_amount_out.
+- Paused deposits and withdrawals while vault funds are in the market.
+
+### Testing
+
+Successfully passed 10 Week 12 tests, including a real
+TOKEN_A to TOKEN_B swap through a Raydium CLMM test pool.
+
+Program ID: 8ENLb6EtpgGwGmbn2TVecPPVPNhbRdZo9LCF7vDTs8kN
+
+Files:
+- programs/simple_vault/src/lib.rs
+- programs/simple_vault/src/raydium.rs
+- tests/raydium.ts
