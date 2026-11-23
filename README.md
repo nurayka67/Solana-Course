@@ -59,3 +59,26 @@ Files:
 - programs/simple_vault/src/lib.rs
 - programs/simple_vault/src/raydium.rs
 - tests/raydium.ts
+
+## Week 13 — CLMM Position Management (Devnet)
+
+Implemented and successfully tested Raydium CLMM position management.
+
+### Features
+- Open a concentrated liquidity position.
+- Collect trading fees without withdrawing liquidity.
+- Close the position and return tokens to the vault.
+- Swap remaining TOKEN_B back to TOKEN_A.
+- Synchronize vault balances using sync_vault.
+- Verify admin permissions and position ownership.
+
+### Test Results
+- 24 tests passed.
+- 0 tests failed.
+- Successfully opened and closed a CLMM position.
+- Collected 0.100836 TOKEN_A and 0.100836 TOKEN_B in test fees.
+
+### Run Tests
+ANCHOR_PROVIDER_URL=https://api.devnet.solana.com ANCHOR_WALLET=~/.config/solana/id.json npx ts-mocha -p ./tsconfig.json -t 600000 tests/raydium.ts
+
+Program ID: 8ENLb6EtpgGwGmbn2TVecPPVPNhbRdZo9LCF7vDTs8kN
