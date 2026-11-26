@@ -1,32 +1,79 @@
-# React + TypeScript + Vite
+﻿# Liquidity Vault — Week 14
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Solana Devnet dApp built with React, TypeScript, Vite and Phantom.
 
-Currently, two official plugins are available:
+## Features
+- Connect Phantom wallet
+- Display SOL, Token A and Token B balances
+- Initialize Vault
+- Create UserCard automatically
+- Deposit Token A and mint share tokens
+- Withdraw shares to redeem Token A
+- Display Vault and share balances
+- Admin: connect Token B to Vault
+- Transaction links to Solana Explorer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Run locally
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+cd web
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Open http://localhost:5173
+
+Use Phantom with Solana Devnet selected.
+
+## Devnet addresses
+
+Program:
+8ENLb6EtpgGwGmbn2TVecPPVPNhbRdZo9LCF7vDTs8kN
+
+Token A:
+ADaNt9CjREvjP9DeYs2JK4CNrw3FAeDFvJW1KHTyXd2Z
+
+Token B:
+3QFjgynxLMHPE5yihHrsAoPtG3ksKK5jHVoTRsmBA2cD
+
+Raydium CLMM pool:
+EpWLXGcgoxACt3dVaFpSE7wBtEmJqegTdNDRhpLAraKF
+
+## Architecture
+
+Frontend: React + Vite + TypeScript
+Wallet: Phantom
+Blockchain: Solana Devnet
+Program: Anchor / Rust
+Token standard: SPL Token
+Liquidity protocol: Raydium CLMM
+
+Vault PDA: ["vault", token_mint]
+Vault token PDA: ["vault_tokens", token_mint]
+Share mint PDA: ["share_mint", token_mint]
+UserCard PDA: ["user_card", vault_state, user]
+Token B vault PDA: ["vault_tokens_b", token_mint]
+
+## Verified transactions
+
+- Vault initialization: successful
+- Deposit 10 Token A: successful
+- Withdraw 5 shares: successful
+- Add Token B: successful
+
+## Current limitations
+
+Raydium Swap, Open Position, Collect Fees and Close Position
+are implemented in the Anchor program from earlier weeks,
+but are not yet exposed as working actions in the web UI.
+
+The existing Devnet Raydium pool currently has no liquidity.
+
+The npm dependency audit reports unresolved advisories.
+This project is for educational Devnet use only.
+Do not use real funds or production wallets.
+
+## Team contribution
+
+Student project: Solana Course, Week 14.
+Frontend integration, Devnet testing and project documentation.

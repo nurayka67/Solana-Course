@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react';
 import DepositPanel from './DepositPanel';
+import AdminPanel from './AdminPanel';
 import {
   Connection, LAMPORTS_PER_SOL, PublicKey,
   Transaction, TransactionInstruction,
@@ -213,6 +214,7 @@ export default function App() {
             </>
           )}
 
+          {vaultReady === true && <AdminPanel wallet={wallet} />}
           {vaultReady === true && <DepositPanel wallet={wallet} onSuccess={connectPhantom} />}
 
           {signature && (
@@ -231,5 +233,6 @@ export default function App() {
     </main>
   );
 }
+
 
 
